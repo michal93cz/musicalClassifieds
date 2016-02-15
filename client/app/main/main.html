@@ -1,0 +1,42 @@
+<navbar></navbar>
+
+<header ng-hide="main.isLoggedIn()" class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Welcome!</h1>
+    <p class="lead">Log in or sign up to post some adds.</p>
+  </div>
+</header>
+
+<div class="container">
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">{{classified.title}}</h3>
+    </div>
+    <div class="modal-body">
+      <p class="pull-right"><strong>{{classified.price | currency:"PLN "}}</strong></p>
+      <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{classified.address.city}}, {{classified.address.country}}</p>
+      <p>{{classified.description}}</p>
+      <div ng-show="isLoggedIn()">
+        <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{classified.contact.name}}</p>
+        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{classified.contact.mail}}</p>
+        <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{classified.contact.phone}}</p>
+      </div>
+      <p ng-hide="isLoggedIn()">Log in or sign up to see a contact details.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="ok()">Exit</button>
+      </div>
+  </script>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="thing in main.awesomeThings">
+      <div class="classified">
+        <h2>{{thing.title}}</h2>
+        <p>{{thing.description}}</p>
+        <p class="pull-right"><strong>{{thing.price | currency:"PLN "}}</strong></p>
+        <button type="button" class="btn btn-default" ng-click="open(thing)">View more</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

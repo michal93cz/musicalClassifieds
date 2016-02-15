@@ -1,0 +1,13 @@
+ <div class="modal-header">
+  <h3 class="modal-title">{{classified.title}}</h3>
+</div>
+<div class="modal-body">
+  <p class="pull-right"><strong>{{classified.price | currency:"PLN "}}</strong></p>
+  <p>{{classified.address.city}}, {{classified.address.country}}</p>
+  <p>{{classified.description}}</p>
+  <p ng-show="main.isLoggedIn()">{{classified.contact.name}}, {{classified.contact.phone}}, {{classified.contact.mail}}</p>
+  <p ng-hide="main.isLoggedIn()">Log in or sign up to see a contact details.</p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+</div>
